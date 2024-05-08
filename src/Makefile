@@ -610,7 +610,8 @@ ifeq ($(PLATFORM),PLATFORM_DESKTOP_RGFW)
     ifeq ($(PLATFORM_OS),OSX)
         # Libraries for Debian MacOS desktop compiling
         # NOTE: Required packages: libegl1-mesa-dev
-    LDLIBS + -lm -framework Foundation -framework AppKit -framework OpenGL -framework CoreVideo
+        LDLIBS += -latomic
+        LDLIBS + -lm -framework Foundation -framework AppKit -framework OpenGL -framework CoreVideo
     endif
 endif
 
