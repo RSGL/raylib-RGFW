@@ -60,7 +60,6 @@ jobs:
         echo "RELEASE_NAME=raylib-${{ github.event.release.tag_name }}_win${{ matrix.bits }}_${{ matrix.compiler }}" >> $GITHUB_ENV
       shell: bash
       if: github.event_name == 'release' && github.event.action == 'published'
-      overwrite: true
 
     - name: Setup Environment
       run: | 
@@ -77,7 +76,6 @@ jobs:
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v2
       if: matrix.compiler == 'msvc16'
-      overwrite: true
 
     - name: Build Library (MinGW-w64 32bit)
       run: |
@@ -93,7 +91,6 @@ jobs:
       if: |
         matrix.compiler == 'mingw-w64' &&
         matrix.bits == 32
-      overwrite: true
         
     - name: Build Library (MinGW-w64 64bit)
       run: |
@@ -109,7 +106,6 @@ jobs:
       if: |
         matrix.compiler == 'mingw-w64' &&
         matrix.bits == 64
-      overwrite: true
 
     - name: Build Library (MSVC16)
       run: |
@@ -122,7 +118,6 @@ jobs:
         cd ../..
       shell: cmd
       if: matrix.compiler == 'msvc16'
-      overwrite: true
 
     - name: Generate Artifacts
       run: |
@@ -150,4 +145,3 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       if: github.event_name == 'release' && github.event.action == 'published'
-      overwrite: true
