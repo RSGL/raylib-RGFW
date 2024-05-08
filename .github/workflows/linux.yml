@@ -70,7 +70,7 @@ jobs:
       run: |
         cd src
         make PLATFORM=PLATFORM_DESKTOP_RGFW CC=gcc RAYLIB_LIBTYPE=STATIC RAYLIB_RELEASE_PATH="../build/${{ env.RELEASE_NAME }}/lib" CUSTOM_CFLAGS="-m32" -B
-        # make PLATFORM=PLATFORM_DESKTOP_RGFW CC=gcc RAYLIB_LIBTYPE=SHARED RAYLIB_RELEASE_PATH="../build/${{ env.RELEASE_NAME }}/lib" -B
+        make PLATFORM=PLATFORM_DESKTOP_RGFW CC=gcc RAYLIB_LIBTYPE=SHARED RAYLIB_RELEASE_PATH="../build/${{ env.RELEASE_NAME }}/lib" -B
         cd ..
       if: matrix.bits == 32
 
