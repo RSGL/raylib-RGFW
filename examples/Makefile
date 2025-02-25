@@ -96,7 +96,6 @@ SDL_INCLUDE_PATH      ?= $(RAYLIB_SRC_PATH)/external/SDL2/include
 SDL_LIBRARY_PATH      ?= $(RAYLIB_SRC_PATH)/external/SDL2/lib
 SDL_LIBRARIES         ?= -lSDL2 -lSDL2main
 
-
 # Use Wayland display server protocol on Linux desktop (by default it uses X11 windowing system)
 # NOTE: This variable is only used for PLATFORM_OS: LINUX
 USE_WAYLAND_DISPLAY   ?= FALSE
@@ -477,7 +476,7 @@ ifeq ($(TARGET_PLATFORM),PLATFORM_DESKTOP_RGFW)
         # NOTE: Required packages: libegl1-mesa-dev
         LDFLAGS += -L../src
         LDLIBS = -lraylib -lm
-        LDLIBS += -framework Foundation -framework AppKit -framework OpenGL -framework CoreVideo
+        LDLIBS += -framework Foundation -framework AppKit -framework IOKit -framework OpenGL -framework CoreVideo
     endif
 endif
 ifeq ($(TARGET_PLATFORM),PLATFORM_DRM)
@@ -548,7 +547,6 @@ SHAPES = \
     shapes/shapes_rectangle_scaling \
     shapes/shapes_splines_drawing \
     shapes/shapes_top_down_lights
-
 
 TEXTURES = \
     textures/textures_background_scrolling \
@@ -665,7 +663,6 @@ OTHERS = \
 ifeq ($(TARGET_PLATFORM), PLATFORM_DESKTOP_GFLW)
     OTHERS += others/rlgl_standalone
 endif
-
 
 CURRENT_MAKEFILE = $(lastword $(MAKEFILE_LIST))
 
