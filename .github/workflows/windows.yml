@@ -78,7 +78,7 @@ jobs:
         cd ${{ env.RELEASE_NAME }}
         mkdir include
         mkdir lib
-        cd ../../../raylib
+        cd ../../../raylib-RGFW
 
     # Setup MSBuild.exe path if required
     - name: Setup MSBuild
